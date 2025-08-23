@@ -76,7 +76,7 @@ void SynthFs::copyStream(std::ofstream &pOfstream, std::ifstream &pIfstream) {
 }
 
 std::string bytesToStr(uint64_t bytes) {
-    std::string suffix[] = {"B", "KB", "MB", "GB", "TB"};
+    std::string suffix[] = {"B", "KiB", "MiB", "GiB", "TiB"};
     char        length   = std::size(suffix);
 
     int    i        = 0;
@@ -96,7 +96,7 @@ synthErrno sfsReadBlocks(u8 *pData, u32 pBlkIdx, u32 pBlkCnt) {
     return SERR_SD_GENERIC_ERROR;
 }
 
-synthErrno SynthFs::writeImage() {
+synthErrno SynthFs::writeImage(std::filesystem::path pInstrumentsFolder) {
     solfegeInit();
 
     std::ofstream sfsImgOut("synth.bin", std::ios_base::out | std::ios_base::binary);
@@ -118,7 +118,7 @@ synthErrno SynthFs::writeImage() {
     u32 singleInstrumentCount = 0;
     u32 multiInstrumentCount  = 0;
 
-    for (const auto &instrumentsEnt: std::filesystem::directory_iterator("instruments"))
+    for (const auto &instrumentsEnt: std::filesystem::directory_iterator(pInstrumentsFolder))
     {
         if (!instrumentsEnt.is_directory())
         {

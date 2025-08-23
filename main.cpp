@@ -23,6 +23,8 @@ int main(int pArgc, char *pArgv[]) {
     subExtractNki.add_argument("-o", "--output-folder");
 
     argparse::ArgumentParser subMkImg("mkimg");
+    subMkImg.add_argument("-i", "--instrument-folder");
+
     argparse::ArgumentParser subFlash("flash");
 
     argparse::ArgumentParser subFill("fill");
@@ -55,7 +57,7 @@ int main(int pArgc, char *pArgv[]) {
         }
         else if (program.is_subcommand_used(subMkImg))
         {
-            ret = SynthFs::writeImage();
+            ret = SynthFs::writeImage(subMkImg.get("--instrument-folder"));
         }
         else if (program.is_subcommand_used(subFlash))
         {
@@ -64,6 +66,10 @@ int main(int pArgc, char *pArgv[]) {
         else if (program.is_subcommand_used(subFill))
         {
             ret = Fill::fill(subFill.get("--instrument-folder"));
+        }
+        else
+        {
+            std::cout << program;
         }
     } catch (const std::exception &err)
     {

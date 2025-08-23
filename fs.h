@@ -28,7 +28,7 @@ class SynthFs {
 public:
     static synthErrno     flashImage();
     static synthErrno     extractImage();
-    static synthErrno     writeImage();
+    static synthErrno     writeImage(std::filesystem::path pInstrumentsFolder);
     static void           copyStream(std::ofstream &pOfstream, std::ifstream &pIfstream);
     static size_t         writeFileToOfstream(std::ofstream &pOfstream, const char *pFile);
     static size_t         writeToFile(const std::filesystem::path &pFile, void *pData, size_t pSize);
