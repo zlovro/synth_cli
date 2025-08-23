@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="nki extract m1 organ" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="nkiex --input-file &quot;F:\vst\norCTrack - Korg Kronos\02-Organ\03-Drawbar\040-M1Organ.nki&quot; --output-folder &quot;nkiex-m1organ&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/workdir/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="synth_cli" TARGET_NAME="synth_cli" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="synth_cli" RUN_TARGET_NAME="synth_cli">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
